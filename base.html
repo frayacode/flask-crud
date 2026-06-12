@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Aplikasi Toko</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+        th { background-color: #2E75B6; color: white; }
+        .success { color: green; }
+        .error   { color: red; }
+        .info    { color: steelblue; }
+    </style>
+</head>
+<body>
+    <h1>Sistem Manajemen Barang</h1>
+    <nav>
+        <a href="/">Daftar Barang</a> |
+        <a href="/tambah">Tambah Barang</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
