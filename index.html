@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Daftar Barang</h2>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="{{ category }}"><b>{{ message }}</b></div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<table>
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Nama Barang</th>
+      <th>Harga (Rp)</th>
+      <th>Stok</th>
+      <th>Aksi</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in produk %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ item['nama'] }}</td>
+      <td>{{ "{:,.0f}".format(item['harga']) }}</td>
+      <td>{{ item['stok'] }}</td>
+      <td>
+        <a href="/edit/{{ item['id'] }}">Edit</a> |
+        <a href="/hapus/{{ item['id'] }}"
+           onclick="return confirm('Yakin hapus barang ini?')">Hapus</a>
+      </td>
+    </tr>
+    {% else %}
+    <tr><td colspan="5">Belum ada data barang.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
