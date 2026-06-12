@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Edit Barang</h2>
+<form method="POST" action="/edit/{{ produk['id'] }}">
+  <label>Nama Barang:</label><br>
+  <input type="text" name="nama"
+         value="{{ produk['nama'] }}" required><br><br>
+
+  <label>Harga (Rp):</label><br>
+  <input type="number" name="harga" step="0.01" min="0"
+         value="{{ produk['harga'] }}" required><br><br>
+
+  <label>Stok:</label><br>
+  <input type="number" name="stok" min="0"
+         value="{{ produk['stok'] }}" required><br><br>
+
+  <button type="submit">Perbarui</button>
+  <a href="/">Batal</a>
+</form>
+{% endblock %}
